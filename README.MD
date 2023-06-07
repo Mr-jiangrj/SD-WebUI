@@ -1,6 +1,6 @@
 初始化
 
-```sh
+```shell
 docker images -q | xargs docker rmi -f
 sudo rm -rf /var/lib/docker/overlay2/*
 sudo rm -rf /opt/hostedtoolcache/*
@@ -14,7 +14,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusio
 
 构建镜像
 
-```sh
+```shell
 registry="registry.cn-hangzhou.aliyuncs.com"
 image="registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-webui"
 docker build -t $image:latest .
@@ -31,5 +31,11 @@ FROM bash
 WORKDIR /app
 COPY stable-diffusion-webui ./stable-diffusion-webui
 CMD ["cp","-r","/app/stable-diffusion-webui","/data/stable-diffusion-webui"]
+```
+
+运行
+
+```shell
+./webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --listen --share --api
 ```
 
