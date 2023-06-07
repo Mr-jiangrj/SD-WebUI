@@ -7,7 +7,7 @@ sudo rm -rf /opt/hostedtoolcache/*
 bash <(wget -qO- https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh) --skip-torch-cuda-test
 ```
 
-打包上传
+上传阿里云盘
 
 ```shell
 tar cvf stable-diffusion-webui.tar stable-diffusion-webui
@@ -26,7 +26,8 @@ upload stable-diffusion-webui.tar /
 apt install wget git python3 python3-venv python3-pip
 pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 pip install --upgrade pip
-pip install -r 
+pip install -r requirements.txt
+pip install -r requirements_versions.txt
 ./webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --listen --share --api
 ```
 
