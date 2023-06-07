@@ -6,7 +6,6 @@ sudo rm -rf /var/lib/docker/overlay2/*
 sudo rm -rf /opt/hostedtoolcache/*
 sudo swapoff -a
 sudo rm -rf /mnt/*
-sudo chown runner:runner -R /mnt
 sudo umount /dev/sda1
 mkdir -p ./data
 sudo mount /dev/sda1 ./data
