@@ -9,6 +9,7 @@ sudo rm -rf /mnt/*
 sudo umount /dev/sda1
 mkdir -p ./data
 sudo mount /dev/sda1 ./data
+cd ./data
 bash <(wget -qO- https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh) --skip-torch-cuda-test
 ```
 
@@ -36,6 +37,9 @@ docker push $image:$(date +'%Y-%m-%d')
 运行
 
 ```shell
+apt install wget git python3 python3-venv python3-pip
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+pip install --upgrade pip
 ./webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --listen --share --api
 ```
 
