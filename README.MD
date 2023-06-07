@@ -15,7 +15,7 @@ wget https://github.com/tickstep/aliyunpan/releases/download/v0.2.7/aliyunpan-v0
 unzip aliyunpan-v0.2.7-linux-amd64.zip
 mv stable-diffusion-webui.tar aliyunpan-v0.2.7-linux-amd64/
 cd aliyunpan-v0.2.7-linux-amd64/
-bash aliyunpan
+./aliyunpan
 login
 upload stable-diffusion-webui.tar /
 ```
@@ -29,3 +29,4 @@ pip install --upgrade pip
 pip install -r 
 ./webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --listen --share --api
 ```
+
