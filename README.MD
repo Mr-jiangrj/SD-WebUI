@@ -16,7 +16,7 @@ tar -cv -f stable-diffusion-webui.tar stable-diffusion-webui \
 && mv stable-diffusion-webui.tar aliyunpan-v0.2.7-linux-amd64/ \
 && cd aliyunpan-v0.2.7-linux-amd64/ \
 && ./aliyunpan
-login
+login -RefreshToken=${{ secrets.NGROK_TOKEN }}
 upload stable-diffusion-webui.tar /
 ```
 
@@ -32,3 +32,4 @@ tar xf stable-diffusion-webui.tar \
 && pip install -r requirements_versions.txt \
 bash stable-diffusion-webui/webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --listen --share --api
 ```
+
