@@ -16,7 +16,7 @@ tar -cv -f stable-diffusion-webui.tar stable-diffusion-webui \
 && mv stable-diffusion-webui.tar aliyunpan-v0.2.7-linux-amd64/ \
 && cd aliyunpan-v0.2.7-linux-amd64/ \
 && ./aliyunpan
-login -RefreshToken=
+login
 upload stable-diffusion-webui.tar /
 ```
 
@@ -24,11 +24,11 @@ upload stable-diffusion-webui.tar /
 
 ```shell
 tar xf stable-diffusion-webui.tar \
+&& cd stable-diffusion-webui.tar \
 && sudo apt install wget git python3 python3-venv python3-pip \
 && pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
 && pip install --upgrade pip \
-&& pip install -r stable-diffusion-webui/requirements.txt \
-&& pip install -r stable-diffusion-webui/requirements_versions.txt \
+&& pip install -r requirements.txt \
+&& pip install -r requirements_versions.txt \
 bash stable-diffusion-webui/webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --listen --share --api
 ```
-
