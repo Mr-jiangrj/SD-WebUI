@@ -28,8 +28,6 @@ tar xf stable-diffusion-webui.tar \
 && sudo apt install wget git python3 python3-venv python3-pip \
 && pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
 && pip install --upgrade pip \
-&& pip install -r requirements.txt \
-&& pip install -r requirements_versions.txt \
 bash stable-diffusion-webui/webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --listen --share --api
 ```
 
