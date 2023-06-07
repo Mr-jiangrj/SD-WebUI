@@ -16,7 +16,7 @@ tar -cv -f stable-diffusion-webui.tar stable-diffusion-webui \
 && mv stable-diffusion-webui.tar aliyunpan-v0.2.7-linux-amd64/ \
 && cd aliyunpan-v0.2.7-linux-amd64/ \
 && ./aliyunpan
-login
+login -RefreshToken=
 upload stable-diffusion-webui.tar /
 ```
 
