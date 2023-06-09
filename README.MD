@@ -1,6 +1,7 @@
 Docker Compose 一键部署
 
 ```yaml
+
 version: "3"
 
 services:
@@ -13,9 +14,9 @@ services:
     networks:
       - SD-NET
 
-  sd-auto-cpu:
+  sdwebui:
     image: registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-auto-cpu
-    container_name: sd-auto-cpu
+    container_name: sdwebui
     ports:
       - 80:7860
     stop_signal: SIGINT
@@ -31,4 +32,39 @@ services:
 networks:
   SD-NET:
     driver: bridge
+
 ```
+
+Docker 手动部署
+
+```shell
+
+# 安装 Docker-CE
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+# 拉取 Stable-Diffusion 镜像
+docker pull registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-data
+docker pull registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-auto-cpu
+# 创建 Stable-Diffusion 数据
+docker run -it --rm -v /opt/sd:/data registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-data
+# 创建 Stable-Diffusion WebUI
+docker run -dit --name sdwebui --hostname sdwebui --restart always \
+    -p 80:7860 --stop_signal=SIGINT -v /opt/sd/data:/data -v /opt/sd/output:/output \
+    -e "CLI_ARGS=--use-cpu=all --no-half --allow-code --enable-insecure-extension-access --share --api" \
+    registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-auto-cpu
+
+```
+###### 更多模型
+
+写实风格
+
+[Stable Diffusion：https://huggingface.co/stabilityai/stable-diffusion-2-1](https://huggingface.co/stabilityai/stable-diffusion-2-1)
+[Chilloutmix：https://civitai.com/models/6424/chilloutmix](https://civitai.com/models/6424/chilloutmix)
+[Deliberate：https://civitai.com/models/4823/deliberate](https://civitai.com/models/4823/deliberate)
+
+动漫风格
+
+[Anything：https://huggingface.co/andite/anything-v4.0](https://huggingface.co/andite/anything-v4.0)
+[Waifu Diffusion：https://huggingface.co/hakurei/waifu-diffusion-v1-4](https://huggingface.co/hakurei/waifu-diffusion-v1-4)
+[Hentai Diffusion：](https://github.com/Delcos/Hentai-Diffusion)
+[DreamShaper：https://civitai.com/models/4384/dreamshaper](https://civitai.com/models/4384/dreamshaper)
+[OrangeMix3：https://huggingface.co/WarriorMama777/OrangeMixs](https://huggingface.co/WarriorMama777/OrangeMixs)
