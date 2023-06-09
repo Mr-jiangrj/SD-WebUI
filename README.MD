@@ -68,3 +68,5 @@ docker run -dit --name sdwebui --hostname sdwebui --restart always \
 |  4   | [DreamShaper：https://civitai.com/models/4384/dreamshaper](https://civitai.com/models/4384/dreamshaper) |
 |  5   | [OrangeMix3：https://huggingface.co/WarriorMama777/OrangeMixs](https://huggingface.co/WarriorMama777/OrangeMixs) |
 
+> 模型路径：/data/StableDiffusion（更多路径可进入容器检查：ls -l /stable-diffusion-webui/）
+
