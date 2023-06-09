@@ -1,7 +1,6 @@
 Docker Compose 一键部署
 
 ```yaml
-
 version: "3"
 
 services:
@@ -38,7 +37,6 @@ networks:
 Docker 手动部署
 
 ```shell
-
 # 安装 Docker-CE
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 # 拉取 Stable-Diffusion 镜像
@@ -53,18 +51,20 @@ docker run -dit --name sdwebui --hostname sdwebui --restart always \
     registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-auto-cpu
 
 ```
+
 ###### 更多模型
 
-写实风格
+| 序号 | 写实风格                                                     |
+| :--: | ------------------------------------------------------------ |
+|  1   | [Stable Diffusion：https://huggingface.co/stabilityai/stable-diffusion-2-1](https://huggingface.co/stabilityai/stable-diffusion-2-1) |
+|  2   | [Chilloutmix：https://civitai.com/models/6424/chilloutmix](https://civitai.com/models/6424/chilloutmix) |
+|  3   | [Deliberate：https://civitai.com/models/4823/deliberate](https://civitai.com/models/4823/deliberate) |
 
-[Stable Diffusion：https://huggingface.co/stabilityai/stable-diffusion-2-1](https://huggingface.co/stabilityai/stable-diffusion-2-1)
-[Chilloutmix：https://civitai.com/models/6424/chilloutmix](https://civitai.com/models/6424/chilloutmix)
-[Deliberate：https://civitai.com/models/4823/deliberate](https://civitai.com/models/4823/deliberate)
+| 序号 | 动漫风格                                                     |
+| :--: | ------------------------------------------------------------ |
+|  1   | [Anything：https://huggingface.co/andite/anything-v4.0](https://huggingface.co/andite/anything-v4.0) |
+|  2   | [Waifu Diffusion：https://huggingface.co/hakurei/waifu-diffusion-v1-4](https://huggingface.co/hakurei/waifu-diffusion-v1-4) |
+|  3   | [Hentai Diffusion：https://github.com/Delcos/Hentai-Diffusion](https://github.com/Delcos/Hentai-Diffusion) |
+|  4   | [DreamShaper：https://civitai.com/models/4384/dreamshaper](https://civitai.com/models/4384/dreamshaper) |
+|  5   | [OrangeMix3：https://huggingface.co/WarriorMama777/OrangeMixs](https://huggingface.co/WarriorMama777/OrangeMixs) |
 
-动漫风格
-
-[Anything：https://huggingface.co/andite/anything-v4.0](https://huggingface.co/andite/anything-v4.0)
-[Waifu Diffusion：https://huggingface.co/hakurei/waifu-diffusion-v1-4](https://huggingface.co/hakurei/waifu-diffusion-v1-4)
-[Hentai Diffusion：](https://github.com/Delcos/Hentai-Diffusion)
-[DreamShaper：https://civitai.com/models/4384/dreamshaper](https://civitai.com/models/4384/dreamshaper)
-[OrangeMix3：https://huggingface.co/WarriorMama777/OrangeMixs](https://huggingface.co/WarriorMama777/OrangeMixs)
