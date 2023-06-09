@@ -1,33 +1,34 @@
-初始化数据
+Docker Compose 一键部署
 
-```shell
-docker images -q | xargs docker rmi -f \
-&& sudo rm -rf /var/lib/docker/overlay2/* \
-&& sudo rm -rf /opt/hostedtoolcache/* \
-&& bash <(wget -qO- https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh) --skip-torch-cuda-test
+```yaml
+version: "3"
+
+services:
+
+  sd-data:
+    image: registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-data
+    container_name: sd-data
+    volumes:
+      - /opt/sd:/data
+    networks:
+      - SD-NET
+
+  sd-auto-cpu:
+    image: registry.cn-hangzhou.aliyuncs.com/jiangrj/sd-auto-cpu
+    container_name: sd-auto-cpu
+    ports:
+      - 80:7860
+    stop_signal: SIGINT
+    environment:
+      - "CLI_ARGS=--use-cpu=all --no-half --allow-code --enable-insecure-extension-access --share --api"
+      # - "CLI_ARGS=--no-half --precision full --allow-code --enable-insecure-extension-access --api"
+    networks:
+      - SD-NET
+    volumes:
+      - /opt/sd/data:/data
+      - /opt/sd/output:/output
+
+networks:
+  SD-NET:
+    driver: bridge
 ```
-
-打包上传
-
-```shell
-tar -cv -f stable-diffusion-webui.tar stable-diffusion-webui \
-&& wget https://github.com/tickstep/aliyunpan/releases/download/v0.2.7/aliyunpan-v0.2.7-linux-amd64.zip \
-&& unzip aliyunpan-v0.2.7-linux-amd64.zip \
-&& mv stable-diffusion-webui.tar aliyunpan-v0.2.7-linux-amd64/ \
-&& cd aliyunpan-v0.2.7-linux-amd64/ \
-&& ./aliyunpan
-login -RefreshToken=${{ secrets.NGROK_TOKEN }}
-upload stable-diffusion-webui.tar /
-```
-
-运行
-
-```shell
-tar xf stable-diffusion-webui.tar \
-&& cd stable-diffusion-webui.tar \
-&& sudo apt install wget git python3 python3-venv python3-pip \
-&& pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
-&& pip install --upgrade pip \
-&& ./webui.sh --skip-torch-cuda-test --enable-insecure-extension-access --use-cpu=all --no-half --port=80 --listen --share --api
-```
-
