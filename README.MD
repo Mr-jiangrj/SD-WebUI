@@ -55,7 +55,7 @@ docker run -dit --name sdwebui --hostname sdwebui --restart always \
 
 ```
 
-PIP 加速
+###### PIP 加速配置 ~/.pip/pip.conf
 
 ```conf
 
