@@ -55,6 +55,13 @@ docker run -dit --name sdwebui --hostname sdwebui --restart always \
 
 ```
 
+
+###### 扩展
+
+> 中文扩展：[https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN](https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN)
+> 
+> 安装路径：扩展 -> 从网址安装 -> 输入git网址 -> 安装
+
 ###### 更多模型
 
 | 序号 | 写实风格                                                     |
@@ -73,3 +80,5 @@ docker run -dit --name sdwebui --hostname sdwebui --restart always \
 
 > 模型路径：/data/StableDiffusion（更多路径可进入容器检查：ls -l /stable-diffusion-webui/）
 
+###### 其它模型参考
+[细数【SD-WEBUI】的模型：谁是最适合的模型从哪里找到它们](http://wed.xjx100.cn/news/148980.html?action=onClick)
