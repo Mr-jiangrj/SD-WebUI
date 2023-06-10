@@ -58,7 +58,9 @@ docker run -dit --name sdwebui --hostname sdwebui --restart always \
 
 ###### 扩展
 
-> 中文扩展：[https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN](https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN)
+> 中文扩展1：[https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN](https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN)
+> 
+> 中文扩展2：[https://github.com/VinsonLaro/stable-diffusion-webui-chinese](https://github.com/VinsonLaro/stable-diffusion-webui-chinese)
 > 
 > 安装路径：扩展 -> 从网址安装 -> 输入git网址 -> 安装
 
