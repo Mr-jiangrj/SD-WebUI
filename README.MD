@@ -55,6 +55,20 @@ docker run -dit --name sdwebui --hostname sdwebui --restart always \
 
 ```
 
+###### 基于 Windows/Linux 手动部署
+
+> Github仓库添加国内可用代理前缀：https://ghproxy.com/
+> 
+> 含Github仓库的文件：stable-diffusion-webui/modules/launch_utils.py、stable-diffusion-webui/modules/models/diffusion/ddpm_edit.py
+> 
+> 查找合适的torch和torchvision：https://download.pytorch.org/whl/
+> 
+> 自动安装方式：pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
+> 
+> 手动安装torch：pip install https://download.pytorch.org/whl/cu118/torch-2.0.1%2Bcu118-cp39-cp39-win_amd64.whl
+> 
+> 手动安装torchversion：pip install https://download.pytorch.org/whl/cu118/torchvision-0.15.2%2Bcu118-cp39-cp39-win_amd64.whl
+
 ###### PIP 加速配置 ~/.pip/pip.conf
 
 ```conf
