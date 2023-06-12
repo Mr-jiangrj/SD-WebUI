@@ -144,4 +144,5 @@ custom_channels:
 
 ###### 其它模型参考
 [细数【SD-WEBUI】的模型：谁是最适合的模型从哪里找到它们](http://wed.xjx100.cn/news/148980.html?action=onClick)
+<br>
 [查找模型：https://huggingface.co/models](https://huggingface.co/models)
